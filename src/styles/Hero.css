@@ -1,0 +1,1407 @@
+/*==================================================
+            HERO.CSS - PART 1
+        Theme + Hero Layout
+==================================================*/
+
+/*==========================
+        THEME
+==========================*/
+
+:root{
+
+  --primary:#00C896;
+  --primary-hover:#00B383;
+
+  --bg:#0B1120;
+  --surface:rgba(255,255,255,.06);
+
+  --text:#ffffff;
+  --text-light:#B8C1CC;
+
+  --border:rgba(255,255,255,.08);
+
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.light{
+
+  --bg:#F8FAFC;
+  --surface:rgba(255,255,255,.92);
+
+  --text:#111827;
+  --text-light:#4B5563;
+
+  --border:#D7DCE2;
+
+  --shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+/*==========================
+        HERO
+==========================*/
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    overflow:hidden;
+
+    background:var(--bg);
+
+    padding:90px 7% 40px;
+
+    margin:0;
+
+}
+
+/*==========================
+     BACKGROUND GLOW
+==========================*/
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+    left:-120px;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:rgba(0,200,150,.12);
+
+    filter:blur(120px);
+
+    animation:glowMove 8s ease-in-out infinite;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-120px;
+    bottom:-120px;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:rgba(59,130,246,.10);
+
+    filter:blur(120px);
+
+    animation:glowMove 10s ease-in-out infinite;
+
+}
+
+@keyframes glowMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-30px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==========================
+        CONTAINER
+==========================*/
+
+.hero-container{
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:45px;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/*==========================
+        LEFT
+==========================*/
+
+.hero-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:max-content;
+
+    padding:10px 18px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    backdrop-filter:blur(20px);
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:500;
+
+    margin-bottom:25px;
+
+}
+
+.hero-title{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    max-width:650px;
+
+    font-size:clamp(2.8rem,4vw,4.3rem);
+
+    font-weight:600;
+
+    line-height:1.1;
+
+    letter-spacing:-1px;
+
+    margin-bottom:22px;
+
+}
+
+.hero-title span{
+
+    background:linear-gradient(
+        90deg,
+        var(--text),
+        var(--primary)
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-description{
+
+    max-width:600px;
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    font-weight:400;
+
+    margin-bottom:35px;
+
+}
+/*==================================================
+            HERO.CSS - PART 2
+      Search Bar + Feature Chips + Stats
+==================================================*/
+
+/*==========================
+        SEARCH BOX
+==========================*/
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    width:100%;
+
+    padding:16px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:32px;
+
+}
+
+.search-item{
+
+    flex:1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.search-item svg{
+
+    color:var(--primary);
+
+    font-size:20px;
+
+}
+
+.search-item input,
+.search-item select{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.search-item input::placeholder{
+
+    color:var(--text-light);
+
+}
+
+.search-item select{
+
+    cursor:pointer;
+
+}
+
+.search-item option{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+.divider{
+
+    width:1px;
+
+    height:38px;
+
+    background:var(--border);
+
+}
+
+.search-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:150px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.search-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(0,200,150,.30);
+
+}
+
+/*==========================
+      FEATURE CHIPS
+==========================*/
+
+.feature-badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-bottom:35px;
+
+}
+
+.feature-chip{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:11px 18px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:500;
+
+    backdrop-filter:blur(20px);
+
+    transition:.3s;
+
+}
+
+.feature-chip svg{
+
+    color:var(--primary);
+
+    font-size:18px;
+
+}
+
+.feature-chip:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 10px 25px rgba(0,200,150,.18);
+
+}
+
+/*==========================
+          STATS
+==========================*/
+
+.hero-stats{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:45px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-stats div{
+
+    position:relative;
+
+}
+
+.hero-stats div:not(:last-child)::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-22px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+
+    height:42px;
+
+    background:var(--border);
+
+}
+
+.hero-stats h2{
+
+    font-size:2.1rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:6px;
+
+}
+
+.hero-stats span{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+/*==================================================
+            HERO.CSS - PART 3
+     Right Side + Premium Property Cards
+==================================================*/
+
+/*==========================
+        RIGHT SIDE
+==========================*/
+
+.hero-right{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+/*==========================
+        BENTO GRID
+==========================*/
+
+.bento-grid{
+
+    width:100%;
+
+    max-width:650px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    position:relative;
+
+}
+
+.card-1{
+
+    grid-column:span 2;
+
+}
+
+.card-2,
+.card-3{
+
+    min-height:250px;
+
+}
+
+/*==========================
+      PROPERTY CARD
+==========================*/
+
+.property-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s ease;
+
+}
+
+.property-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,200,150,.35);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.25),
+    0 10px 25px rgba(0,200,150,.18);
+
+}
+
+.property-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,200,150,.08),
+        transparent,
+        rgba(59,130,246,.08)
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+    pointer-events:none;
+
+}
+
+.property-card:hover::before{
+
+    opacity:1;
+
+}
+
+/*==========================
+        IMAGE
+==========================*/
+
+.property-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.property-image img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .6s ease;
+
+}
+
+.property-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+      PRICE BADGE
+==========================*/
+
+.property-price{
+
+    position:absolute;
+
+    top:16px;
+
+    left:16px;
+
+    padding:8px 15px;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/*==========================
+      LOCATION BADGE
+==========================*/
+
+.property-location{
+
+    position:absolute;
+
+    left:16px;
+
+    bottom:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(12px);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+.light .property-location{
+
+    background:rgba(255,255,255,.92);
+
+    color:#111827;
+
+}
+
+.property-location svg{
+
+    color:var(--primary);
+
+}
+
+/*==========================
+      FAVORITE BUTTON
+==========================*/
+
+.favorite-btn{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    color:#fff;
+
+    transition:.35s;
+
+}
+
+.light .favorite-btn{
+
+    background:#fff;
+
+    color:#111827;
+
+}
+
+.favorite-btn:hover{
+
+    background:#ff4d6d;
+
+    color:#fff;
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+      CARD CONTENT
+==========================*/
+
+.property-content{
+
+    padding:18px;
+
+}
+
+.property-content h3{
+
+    color:var(--text);
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.property-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#fbbf24;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.rating svg{
+
+    fill:#fbbf24;
+
+}
+
+/*==========================
+      BOOK BUTTON
+==========================*/
+
+.book-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:11px 18px;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.book-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(0,200,150,.30);
+
+}
+
+.book-btn svg{
+
+    transition:.3s;
+
+}
+
+.book-btn:hover svg{
+
+    transform:translateX(4px);
+
+}
+/*==================================================
+            HERO.CSS - PART 4
+   Floating Cards + Responsive + Final Polish
+==================================================*/
+
+/*==========================
+      FLOATING AI CARD
+==========================*/
+
+.floating-card{
+
+    position:absolute;
+
+    top:25px;
+
+    right:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 20px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    z-index:5;
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+.floating-icon{
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+}
+
+.floating-card h4{
+
+    color:var(--text);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:4px;
+
+}
+
+.floating-card p{
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+
+/*==========================
+      VERIFIED CARD
+==========================*/
+
+.verified-card{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 20px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    z-index:5;
+
+    animation:floatCard 6s ease-in-out infinite;
+
+}
+
+.verified-card svg{
+
+    color:var(--primary);
+
+    font-size:30px;
+
+}
+
+.verified-card h4{
+
+    color:var(--text);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:4px;
+
+}
+
+.verified-card p{
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+
+/*==========================
+        ANIMATIONS
+==========================*/
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+
+/*==========================
+        TABLET
+==========================*/
+
+@media(max-width:1024px){
+
+.hero{
+
+padding:80px 40px 30px;
+
+}
+
+.hero-container{
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.hero-left{
+
+text-align:center;
+
+align-items:center;
+
+}
+
+.hero-title{
+
+justify-content:center;
+
+font-size:3.2rem;
+
+}
+
+.hero-description{
+
+max-width:650px;
+
+}
+
+.search-box{
+
+flex-wrap:wrap;
+
+}
+
+.feature-badges{
+
+justify-content:center;
+
+}
+
+.hero-stats{
+
+justify-content:center;
+
+}
+
+.hero-right{
+
+width:100%;
+
+}
+
+.bento-grid{
+
+max-width:650px;
+
+margin:auto;
+
+}
+
+}
+
+
+/*==========================
+          MOBILE
+==========================*/
+
+@media(max-width:768px){
+
+.hero{
+
+padding:70px 20px 25px;
+
+}
+
+.hero-container{
+
+display:flex;
+
+flex-direction:column;
+
+gap:30px;
+
+}
+
+.hero-left{
+
+order:1;
+
+text-align:center;
+
+align-items:center;
+
+}
+
+.hero-right{
+
+order:2;
+
+width:100%;
+
+}
+
+.hero-title{
+
+font-size:2.2rem;
+
+justify-content:center;
+
+}
+
+.hero-description{
+
+font-size:15px;
+
+max-width:100%;
+
+}
+
+.search-box{
+
+flex-direction:column;
+
+gap:14px;
+
+padding:16px;
+
+}
+
+.search-item{
+
+width:100%;
+
+}
+
+.divider{
+
+display:none;
+
+}
+
+.search-btn{
+
+width:100%;
+
+}
+
+.feature-badges{
+
+justify-content:center;
+
+}
+
+.hero-stats{
+
+justify-content:space-between;
+
+width:100%;
+
+}
+
+.hero-stats div::after{
+
+display:none;
+
+}
+
+.bento-grid{
+
+grid-template-columns:1fr;
+
+gap:18px;
+
+}
+
+.card-1{
+
+grid-column:auto;
+
+}
+
+.property-image img{
+
+height:210px;
+
+}
+
+.property-bottom{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:12px;
+
+}
+
+.book-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.floating-card,
+
+.verified-card{
+
+display:none;
+
+}
+
+}
+
+
+/*==========================
+      LARGE DESKTOP
+==========================*/
+
+@media(min-width:1400px){
+
+.hero-container{
+
+max-width:1500px;
+
+gap:60px;
+
+}
+
+.hero-title{
+
+font-size:4rem;
+
+font-weight:600;
+
+}
+
+.hero-description{
+
+font-size:17px;
+
+}
+
+.bento-grid{
+
+max-width:700px;
+
+}
+
+.property-image img{
+
+height:240px;
+
+}
+
+}
+
+
+/*==========================
+      GLOBAL FIXES
+==========================*/
+
+.hero{
+
+margin-bottom:0 !important;
+
+}
+
+.hero-container{
+
+margin-bottom:0 !important;
+
+padding-bottom:0 !important;
+
+}
+
+.hero-right{
+
+overflow:hidden;
+
+}
+
+.explorer{
+
+margin-top:0 !important;
+
+padding-top:50px !important;
+
+}
+
+*{
+
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}

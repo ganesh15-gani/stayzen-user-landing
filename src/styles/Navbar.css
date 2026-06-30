@@ -1,0 +1,1227 @@
+/* ============================
+   GOOGLE FONT
+============================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ============================
+   RESET
+============================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ============================
+   THEME
+============================ */
+
+body.dark {
+  background: #07141f;
+  color: #ffffff;
+}
+
+body.light {
+  background: #f8fbff;
+  color: #07141f;
+}
+
+/* ============================
+   CONTAINER
+============================ */
+
+.container {
+  width: min(1400px, 92%);
+  margin: auto;
+}
+
+/* ============================
+   NAVBAR
+============================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  transition: all .35s ease;
+
+  background: rgba(8, 18, 30, .55);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+body.light .navbar{
+    background: rgba(255,255,255,.72);
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.navbar-scrolled{
+
+    padding:6px 0;
+
+    box-shadow:
+    0 12px 40px rgba(0,0,0,.22);
+
+}
+
+/* ============================
+   NAVBAR CONTAINER
+============================ */
+
+.navbar-container{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    height:86px;
+
+}
+
+/* ============================
+   LOGO
+============================ */
+
+.logo{
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    position:relative;
+
+}
+
+/* ============================
+   ROTATING RING
+============================ */
+
+.logo-ring{
+
+    position:absolute;
+
+    width:64px;
+    height:64px;
+
+    border-radius:50%;
+
+    border:2px dashed rgba(0,200,150,.5);
+
+    animation:rotateRing 10s linear infinite;
+
+}
+
+/* ============================
+   LOGO CIRCLE
+============================ */
+
+.logo-circle{
+
+    width:64px;
+    height:64px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+    135deg,
+    #00C896,
+    #0ea5e9
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 0 25px rgba(0,200,150,.45),
+
+    inset 0 0 15px rgba(255,255,255,.18);
+
+    animation:
+    floatLogo 4s ease-in-out infinite;
+
+}
+
+/* glow */
+
+.logo-circle::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-45%;
+
+    background:
+    linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,255,255,.7),
+    transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:
+    shine 4s linear infinite;
+
+}
+
+/* ============================
+   LOGO TEXT
+============================ */
+
+.logo-text{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.logo-text h2{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    color:#ffffff;
+
+    transition:.3s;
+
+}
+
+body.light .logo-text h2{
+
+    color:#07141f;
+
+}
+
+.logo-text h2 span{
+
+    color:#00C896;
+
+}
+
+.logo-text p{
+
+    font-size:11px;
+
+    letter-spacing:1.8px;
+
+    color:#9fb2bf;
+
+    margin-top:-4px;
+
+    text-transform:uppercase;
+
+}
+
+body.light .logo-text p{
+
+    color:#5b6770;
+
+}
+
+/* hover */
+
+.logo:hover .logo-circle{
+
+    transform:scale(1.08);
+
+}
+
+.logo:hover .logo-ring{
+
+    border-color:#00C896;
+
+}
+
+.logo:hover h2 span{
+
+    color:#16f4b3;
+
+}
+
+/* ============================
+   KEYFRAMES
+============================ */
+
+@keyframes rotateRing{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes floatLogo{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@keyframes shine{
+
+    0%{
+
+        transform:
+        translateX(-180%)
+        rotate(25deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateX(220%)
+        rotate(25deg);
+
+    }
+
+}
+/* ============================
+   DESKTOP NAVIGATION
+============================ */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.desktop-nav a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.35s ease;
+}
+
+.desktop-nav a::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #00c896, #0ea5e9);
+  transition: width 0.35s ease;
+}
+
+.desktop-nav a:hover {
+  color: #00c896;
+}
+
+.desktop-nav a:hover::before {
+  width: 100%;
+}
+
+/* ============================
+   NAVBAR ACTIONS
+============================ */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ============================
+   THEME BUTTON
+============================ */
+
+.theme-btn {
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+
+  color: #ffffff;
+
+  background: rgba(255,255,255,.08);
+
+  backdrop-filter: blur(15px);
+
+  transition: .35s ease;
+}
+
+body.light .theme-btn {
+  color: #07141f;
+  background: rgba(0,0,0,.05);
+}
+
+.theme-btn:hover {
+  transform: rotate(180deg) scale(1.08);
+
+  background: #00c896;
+  color: #ffffff;
+
+  box-shadow:
+    0 0 25px rgba(0,200,150,.45);
+}
+
+/* ============================
+   COMMON BUTTON
+============================ */
+
+.signin-btn,
+.signup-btn {
+
+  height: 48px;
+
+  padding: 0 24px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: .35s ease;
+
+}
+
+/* ============================
+   SIGN IN
+============================ */
+
+.signin-btn {
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: rgba(255,255,255,.06);
+
+  backdrop-filter: blur(14px);
+
+}
+
+body.light .signin-btn {
+
+  color: #07141f;
+
+  background: rgba(0,0,0,.03);
+
+  border: 1px solid rgba(0,0,0,.08);
+
+}
+
+.signin-btn:hover {
+
+  transform: translateY(-3px);
+
+  color: #00c896;
+
+  border-color: #00c896;
+
+  box-shadow:
+    0 10px 25px rgba(0,200,150,.25);
+
+}
+
+/* ============================
+   SIGN UP
+============================ */
+
+.signup-btn {
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00c896,
+      #0ea5e9
+    );
+
+  box-shadow:
+    0 12px 28px rgba(0,200,150,.30);
+
+}
+
+.signup-btn:hover {
+
+  transform:
+    translateY(-4px)
+    scale(1.04);
+
+  box-shadow:
+    0 18px 40px rgba(0,200,150,.40);
+
+}
+
+/* ============================
+   ICONS
+============================ */
+
+.signin-btn svg,
+.signup-btn svg {
+  font-size: 18px;
+}
+
+/* ============================
+   MOBILE MENU BUTTON
+============================ */
+
+.menu-btn {
+
+  display: none;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+
+  cursor: pointer;
+
+  border-radius: 12px;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+
+  color: #ffffff;
+
+  background: rgba(255,255,255,.08);
+
+  backdrop-filter: blur(14px);
+
+  transition: .35s ease;
+
+}
+
+body.light .menu-btn {
+
+  color: #07141f;
+
+  background: rgba(0,0,0,.05);
+
+}
+
+.menu-btn:hover {
+
+  background: #00c896;
+
+  color: #ffffff;
+
+  transform: scale(1.08);
+
+}
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+
+  width: min(420px, 100%);
+  height: 100vh;
+
+  background: rgba(8, 18, 30, 0.96);
+
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+
+  transition: right 0.45s ease;
+
+  z-index: 10000;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px;
+}
+
+body.light .mobile-menu {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+/* ==========================================
+   MOBILE TOP
+========================================== */
+
+.mobile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 60px;
+}
+
+.mobile-logo .logo-text p {
+  display: none;
+}
+
+/* ==========================================
+   CLOSE BUTTON
+========================================== */
+
+.close-btn {
+  width: 52px;
+  height: 52px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+
+  color: #ffffff;
+
+  background: rgba(255,255,255,.08);
+
+  transition: .35s ease;
+}
+
+body.light .close-btn {
+  color: #07141f;
+  background: rgba(0,0,0,.05);
+}
+
+.close-btn:hover {
+
+  background: #00C896;
+
+  color: #ffffff;
+
+  transform: rotate(90deg);
+
+}
+
+/* ==========================================
+   MOBILE NAVIGATION
+========================================== */
+
+.mobile-nav {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
+
+}
+
+.mobile-nav a {
+
+  text-decoration: none;
+
+  color: inherit;
+
+  font-size: 24px;
+
+  font-weight: 600;
+
+  transition: .35s ease;
+
+  position: relative;
+
+}
+
+.mobile-nav a::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 3px;
+
+  border-radius: 30px;
+
+  background: linear-gradient(
+      90deg,
+      #00C896,
+      #0ea5e9
+  );
+
+  transition: .35s ease;
+
+}
+
+.mobile-nav a:hover {
+
+  color: #00C896;
+
+  padding-left: 12px;
+
+}
+
+.mobile-nav a:hover::after {
+
+  width: 80px;
+
+}
+
+/* ==========================================
+   MOBILE BUTTONS
+========================================== */
+
+.mobile-buttons {
+
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+}
+
+.mobile-buttons .signin-btn,
+.mobile-buttons .signup-btn {
+
+  width: 100%;
+
+  justify-content: center;
+
+  height: 54px;
+
+  font-size: 16px;
+
+}
+
+/* ==========================================
+   OVERLAY
+========================================== */
+
+.mobile-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,.55);
+
+  backdrop-filter: blur(5px);
+
+  z-index: 9999;
+
+  animation: fadeIn .35s ease;
+
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+  }
+
+  to {
+
+    opacity: 1;
+
+  }
+
+}
+
+.mobile-nav a {
+
+  opacity: 0;
+
+  transform: translateX(40px);
+
+  animation: slideLeft .55s forwards;
+
+}
+
+.mobile-nav a:nth-child(1){animation-delay:.10s;}
+.mobile-nav a:nth-child(2){animation-delay:.18s;}
+.mobile-nav a:nth-child(3){animation-delay:.26s;}
+.mobile-nav a:nth-child(4){animation-delay:.34s;}
+
+@keyframes slideLeft{
+
+  from{
+
+    opacity:0;
+
+    transform:translateX(40px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+  }
+
+}
+/* ==========================================
+   LARGE DESKTOP (1600px+)
+========================================== */
+
+@media (min-width: 1600px) {
+
+  .container {
+    max-width: 1500px;
+  }
+
+  .navbar-container {
+    height: 92px;
+  }
+
+  .logo-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+
+  .logo-ring {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logo-text h2 {
+    font-size: 32px;
+  }
+
+  .logo-text p {
+    font-size: 12px;
+  }
+
+  .desktop-nav {
+    gap: 48px;
+  }
+
+  .desktop-nav a {
+    font-size: 17px;
+  }
+
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (max-width:1200px){
+
+  .desktop-nav{
+    gap:26px;
+  }
+
+  .signin-btn,
+  .signup-btn{
+    padding:0 18px;
+  }
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:992px){
+
+  .desktop-nav,
+  .signin-btn,
+  .signup-btn{
+
+    display:none;
+
+  }
+
+  .menu-btn{
+
+    display:flex;
+
+  }
+
+  .navbar-container{
+
+    height:78px;
+
+  }
+
+  .logo-circle{
+
+    width:58px;
+    height:58px;
+
+    font-size:28px;
+
+  }
+
+  .logo-ring{
+
+    width:58px;
+    height:58px;
+
+  }
+
+  .logo-text h2{
+
+    font-size:26px;
+
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+  .container{
+
+    width:94%;
+
+  }
+
+  .navbar{
+
+    padding:0;
+
+  }
+
+  .navbar-container{
+
+    height:74px;
+
+  }
+
+  .logo{
+
+    gap:10px;
+
+  }
+
+  .logo-circle{
+
+    width:50px;
+    height:50px;
+
+    font-size:24px;
+
+  }
+
+  .logo-ring{
+
+    width:50px;
+    height:50px;
+
+  }
+
+  .logo-text h2{
+
+    font-size:22px;
+
+  }
+
+  .logo-text p{
+
+    display:none;
+
+  }
+
+  .theme-btn,
+  .menu-btn{
+
+    width:44px;
+    height:44px;
+
+    font-size:20px;
+
+  }
+
+  .navbar-actions{
+
+    gap:10px;
+
+  }
+
+  .mobile-menu{
+
+    width:100%;
+    padding:26px;
+
+  }
+
+  .mobile-nav a{
+
+    font-size:22px;
+
+  }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+  .container{
+
+    width:92%;
+
+  }
+
+  .navbar-container{
+
+    height:70px;
+
+  }
+
+  .logo-circle{
+
+    width:46px;
+    height:46px;
+
+    font-size:21px;
+
+  }
+
+  .logo-ring{
+
+    width:46px;
+    height:46px;
+
+  }
+
+  .logo-text h2{
+
+    font-size:20px;
+
+  }
+
+  .theme-btn,
+  .menu-btn{
+
+    width:40px;
+    height:40px;
+
+    font-size:18px;
+
+  }
+
+  .mobile-menu{
+
+    padding:22px;
+
+  }
+
+  .mobile-nav{
+
+    gap:24px;
+
+  }
+
+  .mobile-nav a{
+
+    font-size:20px;
+
+  }
+
+}
+
+/* ==========================================
+   EXTRA SMALL DEVICES
+========================================== */
+
+@media (max-width:360px){
+
+  .logo-text h2{
+
+    font-size:18px;
+
+  }
+
+  .logo-circle{
+
+    width:42px;
+    height:42px;
+
+    font-size:18px;
+
+  }
+
+  .logo-ring{
+
+    width:42px;
+    height:42px;
+
+  }
+
+  .mobile-nav a{
+
+    font-size:18px;
+
+  }
+
+}
+
+/* ==========================================
+   DESKTOP SITE SAFETY
+========================================== */
+
+html,
+body{
+
+  overflow-x:hidden;
+
+}
+
+img{
+
+  max-width:100%;
+  display:block;
+
+}
+
+button{
+
+  font-family:inherit;
+
+}
+
+a{
+
+  -webkit-tap-highlight-color:transparent;
+
+}
+
+.navbar *{
+
+  flex-shrink:0;
+
+}
+
+.logo-text{
+
+  min-width:max-content;
+
+}
+
+.desktop-nav{
+
+  white-space:nowrap;
+
+}
+
+.navbar-actions{
+
+  white-space:nowrap;
+
+}
+
+/* ==========================================
+   SMOOTH TRANSITIONS
+========================================== */
+
+.navbar,
+.logo,
+.desktop-nav a,
+.theme-btn,
+.signin-btn,
+.signup-btn,
+.menu-btn,
+.mobile-nav a,
+.close-btn{
+
+  transition:
+  all .35s ease;
+
+}

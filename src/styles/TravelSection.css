@@ -1,0 +1,1084 @@
+/*==================================================
+        TRAVELSECTION.CSS - PART 1
+        Ultra Premium Layout
+==================================================*/
+
+/*==========================
+        SECTION
+==========================*/
+
+.travel-section{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    background:var(--bg);
+    padding:70px 7%;
+    margin:0;
+    transition:.4s;
+}
+
+/*==========================
+      BACKGROUND
+==========================*/
+
+.travel-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2400&q=80")
+    center center/cover no-repeat;
+    opacity:.14;
+    transform:scale(1.08);
+    animation:bgMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+
+0%{
+transform:scale(1.08) translateY(0);
+}
+
+100%{
+transform:scale(1.14) translateY(-20px);
+}
+
+}
+
+.travel-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(8,12,20,.96),
+        rgba(8,12,20,.82),
+        rgba(8,12,20,.96)
+    );
+    backdrop-filter:blur(8px);
+}
+
+/*==========================
+      LIGHT MODE
+==========================*/
+
+.light .travel-overlay{
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.92),
+rgba(248,250,252,.82),
+rgba(255,255,255,.95)
+);
+
+}
+
+.light .travel-section::before{
+
+opacity:.08;
+
+}
+
+/*==========================
+      CONTAINER
+==========================*/
+
+.travel-container{
+
+position:relative;
+
+z-index:2;
+
+max-width:1450px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:45% 55%;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+/*==========================
+      LEFT CONTENT
+==========================*/
+
+.travel-left{
+
+max-width:540px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.travel-badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+width:max-content;
+
+padding:12px 22px;
+
+border-radius:999px;
+
+background:rgba(0,200,150,.10);
+
+border:1px solid rgba(0,200,150,.25);
+
+backdrop-filter:blur(20px);
+
+color:var(--primary);
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:24px;
+
+}
+
+.travel-badge svg{
+
+font-size:18px;
+
+}
+
+.travel-left h2{
+
+font-size:clamp(2.7rem,4vw,4.2rem);
+
+font-weight:700;
+
+line-height:1.08;
+
+letter-spacing:-1px;
+
+color:var(--text);
+
+margin-bottom:18px;
+
+}
+
+.travel-left h2 span{
+
+display:block;
+
+margin-top:8px;
+
+background:linear-gradient(
+90deg,
+var(--primary),
+#38bdf8
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.travel-left p{
+
+font-size:17px;
+
+line-height:1.8;
+
+max-width:500px;
+
+color:var(--text-light);
+
+margin-bottom:35px;
+
+}
+
+/*==========================
+      WAITLIST
+==========================*/
+
+.travel-waitlist{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+padding:15px;
+
+border-radius:22px;
+
+background:var(--surface);
+
+border:1px solid var(--border);
+
+backdrop-filter:blur(20px);
+
+box-shadow:var(--shadow);
+
+}
+
+.travel-input{
+
+flex:1;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.travel-input svg{
+
+font-size:20px;
+
+color:var(--primary);
+
+}
+
+.travel-input input{
+
+width:100%;
+
+background:transparent;
+
+border:none;
+
+outline:none;
+
+color:var(--text);
+
+font-size:15px;
+
+}
+
+.travel-input input::placeholder{
+
+color:var(--text-light);
+
+}
+
+.travel-btn{
+
+height:56px;
+
+padding:0 26px;
+
+border:none;
+
+border-radius:16px;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-weight:600;
+
+font-size:15px;
+
+color:#fff;
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primary-hover)
+);
+
+transition:.35s;
+
+}
+
+.travel-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 18px 40px rgba(0,200,150,.28);
+
+}
+/*==================================================
+        TRAVELSECTION.CSS - PART 2
+        Premium Right Gallery
+==================================================*/
+
+/*==========================
+      RIGHT SIDE
+==========================*/
+
+.travel-right{
+
+position:relative;
+
+height:620px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+/* Decorative Glow */
+
+.travel-right::before{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+
+height:420px;
+
+right:60px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+border-radius:50%;
+
+background:rgba(0,200,150,.12);
+
+filter:blur(120px);
+
+pointer-events:none;
+
+}
+
+/*==========================
+      GALLERY
+==========================*/
+
+.travel-grid{
+
+position:relative;
+
+width:100%;
+
+height:100%;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:22px;
+
+align-items:center;
+
+}
+
+/*==========================
+      CARD
+==========================*/
+
+.travel-card{
+
+position:relative;
+
+overflow:hidden;
+
+height:520px;
+
+border-radius:28px;
+
+background:var(--surface);
+
+border:1px solid var(--border);
+
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+transition:.45s;
+
+cursor:pointer;
+
+}
+
+/* Premium Heights */
+
+.travel-card:nth-child(1){
+
+margin-top:60px;
+
+}
+
+.travel-card:nth-child(2){
+
+margin-top:0;
+
+}
+
+.travel-card:nth-child(3){
+
+margin-top:90px;
+
+}
+
+/* Hover */
+
+.travel-card:hover{
+
+transform:translateY(-14px) scale(1.03);
+
+border-color:rgba(0,200,150,.35);
+
+box-shadow:
+
+0 35px 80px rgba(0,0,0,.35),
+
+0 15px 35px rgba(0,200,150,.18);
+
+}
+
+.travel-card img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:1s;
+
+}
+
+.travel-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/*==========================
+      OVERLAY
+==========================*/
+
+.travel-card-overlay{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:flex-end;
+
+padding:26px;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+transparent 25%,
+
+rgba(0,0,0,.18),
+
+rgba(0,0,0,.88)
+
+);
+
+}
+
+.light .travel-card-overlay{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+transparent 30%,
+
+rgba(15,23,42,.18),
+
+rgba(15,23,42,.82)
+
+);
+
+}
+
+/*==========================
+      LOCATION
+==========================*/
+
+.travel-location{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+width:max-content;
+
+padding:9px 16px;
+
+margin-bottom:18px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(16px);
+
+color:#fff;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+.travel-location svg{
+
+color:#22c55e;
+
+font-size:15px;
+
+}
+
+/*==========================
+      TITLE
+==========================*/
+
+.travel-card h3{
+
+font-size:30px;
+
+line-height:1.2;
+
+font-weight:700;
+
+color:#fff;
+
+margin-bottom:22px;
+
+}
+
+/*==========================
+      BUTTON
+==========================*/
+
+.explore-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+padding:15px 24px;
+
+border:none;
+
+border-radius:15px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+var(--primary),
+
+var(--primary-hover)
+
+);
+
+color:#fff;
+
+font-size:15px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.explore-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+
+0 15px 35px rgba(0,200,150,.35);
+
+}
+
+.explore-btn svg{
+
+transition:.35s;
+
+}
+
+.explore-btn:hover svg{
+
+transform:translateX(5px);
+
+}
+/*==================================================
+        TRAVELSECTION.CSS - PART 3
+ Responsive + Mobile + Tablet + Desktop + Animations
+==================================================*/
+
+/*==========================
+      FLOATING EFFECT
+==========================*/
+
+@keyframes floating{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.travel-card{
+
+animation:floating 8s ease-in-out infinite;
+
+}
+
+.travel-card:nth-child(2){
+
+animation-delay:1.5s;
+
+}
+
+.travel-card:nth-child(3){
+
+animation-delay:3s;
+
+}
+
+/*==========================
+      SHINE EFFECT
+==========================*/
+
+.travel-card::after{
+
+content:"";
+
+position:absolute;
+
+top:-120%;
+
+left:-60%;
+
+width:60%;
+
+height:250%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+
+transform:rotate(25deg);
+
+transition:.8s;
+
+pointer-events:none;
+
+}
+
+.travel-card:hover::after{
+
+left:150%;
+
+}
+
+/*==========================
+      LARGE DESKTOP
+==========================*/
+
+@media (min-width:1600px){
+
+.travel-container{
+
+max-width:1650px;
+
+gap:90px;
+
+}
+
+.travel-left h2{
+
+font-size:4.8rem;
+
+}
+
+.travel-right{
+
+height:700px;
+
+}
+
+.travel-card{
+
+height:580px;
+
+}
+
+.travel-grid{
+
+gap:28px;
+
+}
+
+}
+
+/*==========================
+      DESKTOP
+==========================*/
+
+@media (max-width:1400px){
+
+.travel-container{
+
+grid-template-columns:45% 55%;
+
+gap:50px;
+
+}
+
+.travel-left h2{
+
+font-size:3.4rem;
+
+}
+
+.travel-right{
+
+height:560px;
+
+}
+
+.travel-card{
+
+height:470px;
+
+}
+
+}
+
+/*==========================
+      TABLET
+==========================*/
+
+@media (max-width:1100px){
+
+.travel-section{
+
+padding:60px 5%;
+
+}
+
+.travel-container{
+
+grid-template-columns:1fr;
+
+gap:45px;
+
+}
+
+.travel-left{
+
+max-width:100%;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+.travel-left p{
+
+max-width:700px;
+
+}
+
+.travel-right{
+
+height:auto;
+
+}
+
+.travel-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:22px;
+
+}
+
+.travel-card{
+
+height:380px;
+
+margin-top:0 !important;
+
+}
+
+}
+
+/*==========================
+      MOBILE
+==========================*/
+
+@media (max-width:768px){
+
+.travel-section{
+
+padding:50px 20px;
+
+}
+
+.travel-container{
+
+grid-template-columns:1fr;
+
+gap:35px;
+
+}
+
+.travel-left{
+
+text-align:center;
+
+align-items:center;
+
+}
+
+.travel-badge{
+
+font-size:13px;
+
+padding:10px 18px;
+
+}
+
+.travel-left h2{
+
+font-size:2.2rem;
+
+line-height:1.2;
+
+}
+
+.travel-left p{
+
+font-size:15px;
+
+line-height:1.7;
+
+margin-bottom:28px;
+
+}
+
+.travel-waitlist{
+
+flex-direction:column;
+
+padding:18px;
+
+}
+
+.travel-input{
+
+width:100%;
+
+}
+
+.travel-btn{
+
+width:100%;
+
+height:54px;
+
+}
+
+.travel-right{
+
+height:auto;
+
+}
+
+.travel-grid{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.travel-card{
+
+height:340px;
+
+margin-top:0 !important;
+
+}
+
+.travel-card h3{
+
+font-size:24px;
+
+}
+
+}
+
+/*==========================
+      SMALL MOBILE
+==========================*/
+
+@media (max-width:480px){
+
+.travel-section{
+
+padding:40px 16px;
+
+}
+
+.travel-left h2{
+
+font-size:1.9rem;
+
+}
+
+.travel-left p{
+
+font-size:14px;
+
+}
+
+.travel-card{
+
+height:300px;
+
+border-radius:22px;
+
+}
+
+.travel-card h3{
+
+font-size:20px;
+
+}
+
+.travel-location{
+
+font-size:12px;
+
+padding:7px 14px;
+
+}
+
+.explore-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+}
+
+/*==========================
+      LIGHT MODE
+==========================*/
+
+.light .travel-card{
+
+background:#ffffff;
+
+border:1px solid rgba(0,0,0,.08);
+
+}
+
+.light .travel-badge{
+
+background:rgba(255,255,255,.95);
+
+}
+
+.light .travel-waitlist{
+
+background:#ffffff;
+
+}
+
+.light .travel-input input{
+
+color:#111827;
+
+}
+
+/*==========================
+      FINAL POLISH
+==========================*/
+
+.travel-section{
+
+margin:0 !important;
+
+padding-top:55px !important;
+
+padding-bottom:55px !important;
+
+}
+
+.travel-section + section{
+
+margin-top:0 !important;
+
+}
+
+.travel-card,
+.travel-btn,
+.explore-btn{
+
+transition:all .35s ease;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}

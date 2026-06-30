@@ -1,0 +1,763 @@
+/*==================================================
+            BLOGS.CSS - PART 1
+      Premium Layout + Header + Grid
+==================================================*/
+
+.blogs{
+
+    position:relative;
+
+    padding:90px 7%;
+
+    background:var(--bg);
+
+    overflow:hidden;
+
+}
+
+/*==========================
+     Background Glow
+==========================*/
+
+.blogs::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    left:-120px;
+
+    top:-120px;
+
+    border-radius:50%;
+
+    background:rgba(0,200,150,.08);
+
+    filter:blur(120px);
+
+}
+
+.blogs::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    right:-120px;
+
+    bottom:-120px;
+
+    border-radius:50%;
+
+    background:rgba(59,130,246,.08);
+
+    filter:blur(120px);
+
+}
+
+.blogs-container{
+
+    max-width:1450px;
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/*==========================
+        HEADER
+==========================*/
+
+.blogs-header{
+
+    text-align:center;
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+
+}
+
+.blogs-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:11px 20px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    backdrop-filter:blur(20px);
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:500;
+
+    margin-bottom:22px;
+
+}
+
+.blogs-badge svg{
+
+    font-size:18px;
+
+}
+
+.blogs-header h2{
+
+    font-size:clamp(2.4rem,4vw,4rem);
+
+    color:var(--text);
+
+    font-weight:600;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+}
+
+.blogs-header h2 span{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        #3b82f6
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.blogs-header p{
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+/*==========================
+        BLOG GRID
+==========================*/
+
+.blogs-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    align-items:start;
+
+}
+/*==================================================
+            BLOGS.CSS - PART 2
+      Premium Blog Cards + Hover Effects
+==================================================*/
+
+/*==========================
+        BLOG CARD
+==========================*/
+
+.blog-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:all .4s ease;
+
+    cursor:pointer;
+
+}
+
+.blog-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(0,200,150,.35);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.30),
+    0 15px 35px rgba(0,200,150,.15);
+
+}
+
+.blog-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,200,150,.08),
+        transparent,
+        rgba(59,130,246,.08)
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+    pointer-events:none;
+
+}
+
+.blog-card:hover::before{
+
+    opacity:1;
+
+}
+
+/*==========================
+        IMAGE
+==========================*/
+
+.blog-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.blog-image img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .7s ease;
+
+}
+
+.blog-card:hover .blog-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+      CATEGORY BADGE
+==========================*/
+
+.blog-category{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(14px);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.light .blog-category{
+
+    background:rgba(255,255,255,.92);
+
+    color:#111827;
+
+}
+
+.blog-category svg{
+
+    color:var(--primary);
+
+}
+
+/*==========================
+        CONTENT
+==========================*/
+
+.blog-content{
+
+    padding:24px;
+
+}
+
+.blog-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:16px;
+
+}
+
+.blog-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+.blog-meta svg{
+
+    color:var(--primary);
+
+}
+
+.blog-content h3{
+
+    color:var(--text);
+
+    font-size:22px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+    margin-bottom:16px;
+
+}
+
+.blog-content p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:24px;
+
+}
+
+/*==========================
+      READ ARTICLE
+==========================*/
+
+.read-more{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:var(--primary);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    position:relative;
+
+    transition:.35s;
+
+}
+
+.read-more::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.35s;
+
+}
+
+.blog-card:hover .read-more::after{
+
+    width:100%;
+
+}
+
+.read-more svg{
+
+    transition:.35s;
+
+}
+
+.blog-card:hover .read-more svg{
+
+    transform:translate(4px,-4px);
+
+}
+/*==================================================
+            BLOGS.CSS - PART 3
+   Responsive + Animations + Final Premium Polish
+==================================================*/
+
+/*==========================
+        FLOAT ANIMATION
+==========================*/
+
+@keyframes floatBlog{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.blog-card{
+
+animation:floatBlog 8s ease-in-out infinite;
+
+}
+
+.blog-card:nth-child(2){
+
+animation-delay:1s;
+
+}
+
+.blog-card:nth-child(3){
+
+animation-delay:2s;
+
+}
+
+/*==========================
+      IMAGE OVERLAY
+==========================*/
+
+.blog-image::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(
+180deg,
+transparent,
+rgba(0,0,0,.25)
+);
+
+pointer-events:none;
+
+transition:.4s;
+
+}
+
+.blog-card:hover .blog-image::after{
+
+background:linear-gradient(
+180deg,
+rgba(0,0,0,.05),
+rgba(0,0,0,.45)
+);
+
+}
+
+/*==========================
+        TABLET
+==========================*/
+
+@media(max-width:1024px){
+
+.blogs{
+
+padding:80px 40px;
+
+}
+
+.blogs-header{
+
+margin-bottom:55px;
+
+}
+
+.blogs-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:24px;
+
+}
+
+.blog-image img{
+
+height:220px;
+
+}
+
+.blog-content{
+
+padding:20px;
+
+}
+
+.blog-content h3{
+
+font-size:20px;
+
+}
+
+}
+
+/*==========================
+          MOBILE
+==========================*/
+
+@media(max-width:768px){
+
+.blogs{
+
+padding:70px 20px;
+
+}
+
+.blogs-header{
+
+margin-bottom:40px;
+
+}
+
+.blogs-header h2{
+
+font-size:2rem;
+
+}
+
+.blogs-header p{
+
+font-size:15px;
+
+line-height:1.7;
+
+}
+
+.blogs-grid{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.blog-image img{
+
+height:210px;
+
+}
+
+.blog-content{
+
+padding:18px;
+
+}
+
+.blog-content h3{
+
+font-size:19px;
+
+}
+
+.blog-content p{
+
+font-size:14px;
+
+}
+
+.blogs-badge{
+
+font-size:13px;
+
+padding:10px 16px;
+
+}
+
+.read-more{
+
+font-size:14px;
+
+}
+
+}
+
+/*==========================
+      LARGE DESKTOP
+==========================*/
+
+@media(min-width:1440px){
+
+.blogs{
+
+padding:110px 8%;
+
+}
+
+.blogs-container{
+
+max-width:1550px;
+
+}
+
+.blogs-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+}
+
+.blog-image img{
+
+height:260px;
+
+}
+
+.blog-content{
+
+padding:26px;
+
+}
+
+.blog-content h3{
+
+font-size:24px;
+
+}
+
+.blogs-header h2{
+
+font-size:3.8rem;
+
+font-weight:600;
+
+}
+
+}
+
+/*==========================
+      SMOOTH TRANSITIONS
+==========================*/
+
+.blog-card,
+.blog-image img,
+.read-more,
+.blog-category{
+
+transition:
+all .35s ease;
+
+}
+
+/*==========================
+      SECTION SPACING
+==========================*/
+
+.blogs{
+
+margin-top:0;
+
+}
+
+.blogs + section{
+
+margin-top:0;
+
+}

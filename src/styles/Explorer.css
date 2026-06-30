@@ -1,0 +1,1012 @@
+/*==================================================
+        EXPLORER.CSS - PART 1
+   Ultra Premium Layout + Header + Filters
+==================================================*/
+
+/*==========================
+        SECTION
+==========================*/
+
+.explorer{
+
+    position:relative;
+
+    width:100%;
+
+    background:var(--bg);
+
+    padding:60px 7%;
+
+    margin:0;
+
+    overflow:hidden;
+
+}
+
+.explorer>*{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/*==========================
+     BACKGROUND GLOW
+==========================*/
+
+.explorer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    top:-180px;
+
+    left:-180px;
+
+    border-radius:50%;
+
+    background:rgba(0,200,150,.08);
+
+    filter:blur(140px);
+
+}
+
+.explorer::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    right:-180px;
+
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:rgba(59,130,246,.08);
+
+    filter:blur(140px);
+
+}
+
+/*==========================
+      CONTAINER
+==========================*/
+
+.explorer-container{
+
+    width:100%;
+
+    max-width:1450px;
+
+    margin:0 auto;
+
+}
+
+/*==========================
+        HEADER
+==========================*/
+
+.section-header{
+
+    max-width:760px;
+
+    margin:0 auto 45px;
+
+    text-align:center;
+
+}
+
+.mini-title{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 22px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:999px;
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:500;
+
+    margin-bottom:22px;
+
+}
+
+.mini-title svg{
+
+    font-size:18px;
+
+}
+
+.section-header h2{
+
+    color:var(--text);
+
+    font-size:clamp(2.5rem,4vw,3.8rem);
+
+    font-weight:600;
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+
+}
+
+.section-header p{
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+/*==========================
+      FILTER TABS
+==========================*/
+
+.filter-tabs{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:45px;
+
+}
+
+.filter-tabs button{
+
+    padding:12px 24px;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    border-radius:999px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+    font-size:15px;
+
+    font-weight:500;
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
+
+}
+
+.filter-tabs button:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+}
+
+.filter-tabs button.active{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:#fff;
+
+    border-color:transparent;
+
+    box-shadow:0 15px 35px rgba(0,200,150,.25);
+
+}
+
+/*==========================
+      PROPERTY GRID
+==========================*/
+
+.property-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,320px));
+
+    justify-content:center;
+
+    align-items:start;
+
+    gap:24px;
+
+    margin:0;
+
+    padding:0;
+
+}
+/*==================================================
+        EXPLORER.CSS - PART 2
+     Premium Property Cards
+==================================================*/
+
+/*==========================
+        PROPERTY CARD
+==========================*/
+
+.property-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:var(--shadow);
+
+    transition:all .35s ease;
+
+    cursor:pointer;
+
+}
+
+.property-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,200,150,.35);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.25),
+    0 10px 30px rgba(0,200,150,.15);
+
+}
+
+/*==========================
+        IMAGE
+==========================*/
+
+.property-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px 22px 0 0;
+
+}
+
+.property-image img{
+
+    width:100%;
+
+    height:210px;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:transform .6s ease;
+
+}
+
+.property-card:hover .property-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+      HEART BUTTON
+==========================*/
+
+.heart-btn{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(255,255,255,.15);
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+.light .heart-btn{
+
+    background:#fff;
+
+    color:#111827;
+
+}
+
+.heart-btn:hover{
+
+    background:#ff4d6d;
+
+    color:#fff;
+
+    transform:scale(1.08);
+
+}
+
+.heart-btn.active{
+
+    background:#ff4d6d;
+
+    color:#fff;
+
+}
+
+/*==========================
+        PRICE TAG
+==========================*/
+
+.price-tag{
+
+    position:absolute;
+
+    left:15px;
+
+    top:15px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/*==========================
+        CONTENT
+==========================*/
+
+.property-content{
+
+    padding:18px;
+
+}
+
+.property-content h3{
+
+    color:var(--text);
+
+    font-size:19px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+    margin-bottom:12px;
+
+}
+
+/*==========================
+        LOCATION
+==========================*/
+
+.location{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    margin-bottom:16px;
+
+}
+
+.location svg{
+
+    color:var(--primary);
+
+}
+
+/*==========================
+      SHARING BADGE
+==========================*/
+
+.sharing-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(0,200,150,.12);
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+/*==========================
+      ACTION BUTTONS
+==========================*/
+
+.property-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.book-btn,
+.notify-btn,
+.enquiry-btn{
+
+    flex:1;
+
+    min-width:120px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.book-btn{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:#fff;
+
+}
+
+.book-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(0,200,150,.25);
+
+}
+
+.notify-btn{
+
+    background:#f97316;
+
+    color:#fff;
+
+}
+
+.notify-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.enquiry-btn{
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+}
+
+.enquiry-btn:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+/*==================================================
+        EXPLORER.CSS - PART 3
+   Login Modal + Responsive + Final Polish
+==================================================*/
+
+/*==========================
+        LOGIN MODAL
+==========================*/
+
+.login-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(10px);
+
+    z-index:9999;
+
+    animation:fadeIn .35s ease;
+
+}
+
+.login-modal{
+
+    width:100%;
+
+    max-width:420px;
+
+    padding:32px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+}
+
+.login-modal h2{
+
+    color:var(--text);
+
+    font-size:30px;
+
+    font-weight:600;
+
+    margin-bottom:16px;
+
+}
+
+.login-modal p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+    margin-bottom:28px;
+
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.login-btn,
+.cancel-btn{
+
+    flex:1;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.login-btn{
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-hover)
+    );
+
+    color:#fff;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.cancel-btn{
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+}
+
+.cancel-btn:hover{
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+
+}
+
+/*==========================
+      CARD ANIMATION
+==========================*/
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.property-card{
+
+animation:floatCard 8s ease-in-out infinite;
+
+}
+
+.property-card:nth-child(2){
+
+animation-delay:1s;
+
+}
+
+.property-card:nth-child(3){
+
+animation-delay:2s;
+
+}
+
+.property-card:nth-child(4){
+
+animation-delay:3s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/*==========================
+        TABLET
+==========================*/
+
+@media(max-width:1024px){
+
+.explorer{
+
+padding:50px 35px;
+
+}
+
+.property-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+justify-content:stretch;
+
+}
+
+}
+
+/*==========================
+        MOBILE
+==========================*/
+
+@media(max-width:768px){
+
+.explorer{
+
+padding:40px 20px;
+
+}
+
+.section-header{
+
+margin-bottom:30px;
+
+}
+
+.section-header h2{
+
+font-size:2rem;
+
+}
+
+.section-header p{
+
+font-size:15px;
+
+}
+
+.filter-tabs{
+
+flex-wrap:nowrap;
+
+overflow-x:auto;
+
+justify-content:flex-start;
+
+padding-bottom:8px;
+
+scrollbar-width:none;
+
+}
+
+.filter-tabs::-webkit-scrollbar{
+
+display:none;
+
+}
+
+.filter-tabs button{
+
+white-space:nowrap;
+
+padding:10px 18px;
+
+}
+
+.property-grid{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.property-image img{
+
+height:200px;
+
+}
+
+.property-actions{
+
+flex-direction:column;
+
+}
+
+.book-btn,
+.notify-btn,
+.enquiry-btn{
+
+width:100%;
+
+}
+
+.modal-buttons{
+
+flex-direction:column;
+
+}
+
+.login-modal{
+
+margin:20px;
+
+padding:24px;
+
+}
+
+}
+
+/*==========================
+     LARGE DESKTOP
+==========================*/
+
+@media(min-width:1400px){
+
+.property-grid{
+
+grid-template-columns:repeat(4,300px);
+
+justify-content:center;
+
+gap:28px;
+
+}
+
+}
+
+/*==========================
+      FINAL FIXES
+==========================*/
+
+.hero{
+
+margin-bottom:0 !important;
+
+padding-bottom:25px !important;
+
+}
+
+.explorer{
+
+margin-top:0 !important;
+
+margin-bottom:0 !important;
+
+padding-top:40px !important;
+
+padding-bottom:40px !important;
+
+}
+
+.blogs{
+
+margin-top:0 !important;
+
+padding-top:40px !important;
+
+}
+
+/* Remove unwanted spacing */
+
+section{
+
+margin:0;
+
+}
+
+/* Smooth transitions */
+
+*{
+
+box-sizing:border-box;
+
+transition:
+
+background-color .3s,
+
+color .3s,
+
+border-color .3s,
+
+transform .3s,
+
+box-shadow .3s;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}

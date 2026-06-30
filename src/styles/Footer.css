@@ -1,0 +1,793 @@
+/*==================================================
+            FOOTER.CSS - PART 1
+      Ultra Premium Footer Layout
+==================================================*/
+
+/*==========================
+        FOOTER
+==========================*/
+
+.footer{
+
+    position:relative;
+
+    background:var(--bg);
+
+    padding:70px 7% 30px;
+
+    overflow:hidden;
+
+    border-top:1px solid rgba(0,200,150,.15);
+
+}
+
+/*==========================
+      TOP GLOW LINE
+==========================*/
+
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:75%;
+
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,200,150,.9),
+        transparent
+    );
+
+    box-shadow:
+    0 0 18px rgba(0,200,150,.35);
+
+}
+
+/*==========================
+      BACKGROUND GLOW
+==========================*/
+
+.footer::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-140px;
+
+    top:-120px;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:rgba(0,200,150,.08);
+
+    filter:blur(120px);
+
+    pointer-events:none;
+
+}
+
+/*==========================
+      CONTAINER
+==========================*/
+
+.footer-container{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:1500px;
+
+    margin:auto;
+
+}
+
+/*==========================
+      GRID
+==========================*/
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.4fr
+    1fr
+    1fr
+    1fr;
+
+    gap:60px;
+
+    align-items:flex-start;
+
+    padding-bottom:45px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+/*==========================
+      BRAND
+==========================*/
+
+.footer-brand{
+
+    max-width:360px;
+
+}
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.logo-green{
+
+    color:var(--primary);
+
+}
+
+.logo-blue{
+
+    color:#38bdf8;
+
+}
+
+.footer-brand p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+/*==========================
+      COLUMN
+==========================*/
+
+.footer-column h4{
+
+    color:var(--text);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:22px;
+
+    text-transform:uppercase;
+
+}
+
+.footer-column ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.footer-column li{
+
+    margin-bottom:16px;
+
+}
+/*==================================================
+            FOOTER.CSS - PART 2
+      Links + Social + Bottom Section
+==================================================*/
+
+/*==========================
+      LINKS
+==========================*/
+
+.footer-column ul li a{
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    font-weight:500;
+
+    text-decoration:none;
+
+    transition:all .35s ease;
+
+}
+
+.footer-column ul li a:hover{
+
+    color:var(--primary);
+
+    transform:translateX(6px);
+
+}
+
+.footer-column ul li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-5px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.35s;
+
+}
+
+.footer-column ul li a:hover::after{
+
+    width:100%;
+
+}
+
+/*==========================
+      SOCIAL ICONS
+==========================*/
+
+.footer-social{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.footer-social a{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
+}
+
+.footer-social a:hover{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:#fff;
+
+    transform:translateY(-5px) scale(1.08);
+
+    border-color:transparent;
+
+    box-shadow:
+    0 12px 28px rgba(0,200,150,.28);
+
+}
+
+/*==========================
+      FOOTER BOTTOM
+==========================*/
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding-top:30px;
+
+}
+
+.footer-bottom p{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+.footer-bottom-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.footer-bottom-links span{
+
+    color:var(--text-light);
+
+}
+
+.footer-bottom-links a{
+
+    color:var(--text-light);
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.footer-bottom-links a:hover{
+
+    color:var(--primary);
+
+}
+
+/*==========================
+      PREMIUM HOVER
+==========================*/
+
+.footer-logo{
+
+    transition:.35s;
+
+}
+
+.footer-logo:hover{
+
+    transform:scale(1.03);
+
+}
+
+.footer-brand p{
+
+    transition:.3s;
+
+}
+
+.footer:hover .footer-brand p{
+
+    color:var(--text);
+
+}
+/*==================================================
+            FOOTER.CSS - PART 3
+ Responsive (Mobile • Tablet • Desktop • 4K)
+==================================================*/
+
+/*==========================
+      LARGE DESKTOP
+==========================*/
+
+@media (min-width:1600px){
+
+.footer-container{
+
+max-width:1700px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1.6fr 1fr 1fr 1fr;
+
+gap:80px;
+
+}
+
+.footer-logo{
+
+font-size:38px;
+
+}
+
+.footer-brand p{
+
+font-size:16px;
+
+}
+
+.footer-column h4{
+
+font-size:14px;
+
+}
+
+.footer-column ul li a{
+
+font-size:16px;
+
+}
+
+}
+
+/*==========================
+          DESKTOP
+==========================*/
+
+@media (max-width:1400px){
+
+.footer{
+
+padding:65px 6% 28px;
+
+}
+
+.footer-grid{
+
+gap:45px;
+
+}
+
+}
+
+/*==========================
+          TABLET
+==========================*/
+
+@media (max-width:1024px){
+
+.footer{
+
+padding:60px 5% 25px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:40px;
+
+}
+
+.footer-brand{
+
+max-width:100%;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+.footer-bottom-links{
+
+justify-content:center;
+
+}
+
+}
+
+/*==========================
+          MOBILE
+==========================*/
+
+@media (max-width:768px){
+
+.footer{
+
+padding:50px 20px 25px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+gap:35px;
+
+text-align:center;
+
+}
+
+.footer-brand{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+max-width:100%;
+
+}
+
+.footer-logo{
+
+justify-content:center;
+
+font-size:30px;
+
+}
+
+.footer-brand p{
+
+max-width:320px;
+
+margin:0 auto 25px;
+
+}
+
+.footer-social{
+
+justify-content:center;
+
+}
+
+.footer-column{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.footer-column ul{
+
+width:100%;
+
+}
+
+.footer-column li{
+
+margin-bottom:14px;
+
+}
+
+.footer-column ul li a{
+
+justify-content:center;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:15px;
+
+}
+
+.footer-bottom-links{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+/*==========================
+       SMALL MOBILE
+==========================*/
+
+@media (max-width:480px){
+
+.footer{
+
+padding:45px 16px 20px;
+
+}
+
+.footer-logo{
+
+font-size:26px;
+
+}
+
+.footer-brand p{
+
+font-size:14px;
+
+}
+
+.footer-column h4{
+
+font-size:12px;
+
+letter-spacing:1.5px;
+
+}
+
+.footer-column ul li a{
+
+font-size:14px;
+
+}
+
+.footer-social{
+
+gap:12px;
+
+}
+
+.footer-social a{
+
+width:42px;
+
+height:42px;
+
+}
+
+.footer-bottom p{
+
+font-size:13px;
+
+}
+
+.footer-bottom-links{
+
+gap:10px;
+
+}
+
+}
+
+/*==========================
+      LIGHT MODE
+==========================*/
+
+.light .footer{
+
+background:#ffffff;
+
+border-top:1px solid rgba(0,200,150,.15);
+
+}
+
+.light .footer::before{
+
+box-shadow:0 0 14px rgba(0,200,150,.25);
+
+}
+
+.light .footer-social a{
+
+background:#ffffff;
+
+border:1px solid rgba(0,0,0,.08);
+
+}
+
+.light .footer-bottom{
+
+border-color:rgba(0,0,0,.08);
+
+}
+
+/*==========================
+      PREMIUM POLISH
+==========================*/
+
+.footer{
+
+margin:0 !important;
+
+overflow:hidden;
+
+}
+
+.footer-grid{
+
+align-items:flex-start;
+
+}
+
+.footer-column ul li a{
+
+transition:
+
+transform .3s ease,
+
+color .3s ease;
+
+}
+
+.footer-column ul li a:hover{
+
+transform:translateX(4px);
+
+}
+
+.footer-social a{
+
+transition:
+
+transform .35s ease,
+
+box-shadow .35s ease,
+
+background-color .35s ease;
+
+}
+
+.footer *{
+
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}

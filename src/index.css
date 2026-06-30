@@ -1,0 +1,30 @@
+/* ==========================================
+   GLOBAL SECTION SPACING
+========================================== */
+
+.hero{
+    padding-bottom:40px !important;
+    margin-bottom:0 !important;
+}
+
+.explorer{
+    padding-top:40px !important;
+    padding-bottom:40px !important;
+    margin:0 !important;
+}
+
+.blogs{
+    padding-top:40px !important;
+    padding-bottom:40px !important;
+    margin:0 !important;
+}
+
+.support-hub{
+    padding-top:40px !important;
+    padding-bottom:40px !important;
+    margin:0 !important;
+}
+
+section{
+    margin:0 !important;
+}
