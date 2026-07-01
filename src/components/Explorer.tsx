@@ -1,171 +1,172 @@
-// Explorer.tsx (Part 1)
+// ==============================================
+// Explorer.tsx - PART 1
+// ==============================================
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  FiHeart,
-  FiMapPin,
-  FiFilter,
-} from "react-icons/fi";
+import React, { useMemo, useState } from "react";
 import "../styles/Explorer.css";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const categories = [
-  "All",
-  "For Rent",
-  "Coliving",
-  "Luxury",
-];
+import {
+  FiMapPin,
+  FiStar,
+  FiArrowRight,
+} from "react-icons/fi";
 
-const properties = [
+interface Property {
+  id: number;
+  title: string;
+  location: string;
+  category: string;
+  price: string;
+  rating: number;
+  image: string;
+}
+
+const properties: Property[] = [
   {
     id: 1,
     title: "Luxury PG",
     location: "Hyderabad",
-    price: "₹8,999/mo",
-    sharing: "Single",
-    category: "For Rent",
-    available: true,
+    category: "PG",
+    price: "₹8,500 / month",
+    rating: 4.9,
     image:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80",
   },
   {
     id: 2,
     title: "Elite Apartment",
     location: "Bangalore",
-    price: "₹13,499/mo",
-    sharing: "Double",
-    category: "Luxury",
-    available: false,
+    category: "Apartment",
+    price: "₹18,000 / month",
+    rating: 4.8,
     image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
   },
   {
     id: 3,
     title: "Premium Hostel",
     location: "Chennai",
-    price: "₹6,999/mo",
-    sharing: "Triple",
-    category: "Coliving",
-    available: true,
+    category: "Hostel",
+    price: "₹6,000 / month",
+    rating: 4.7,
     image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?w=900&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80",
   },
   {
     id: 4,
     title: "Modern Studio",
     location: "Pune",
-    price: "₹11,499/mo",
-    sharing: "Single",
-    category: "Luxury",
-    available: true,
+    category: "Studio",
+    price: "₹14,500 / month",
+    rating: 4.9,
     image:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80",
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80",
   },
 ];
 
-const Explorer = () => {
+const Explorer: React.FC = () => {
+
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("All");
 
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const tabs = [
+    "All",
+    "PG",
+    "Apartment",
+    "Hostel",
+    "Studio",
+  ];
 
-  const [showLogin, setShowLogin] = useState(false);
+  const filteredProperties = useMemo(() => {
 
-  const [pendingAction, setPendingAction] = useState("");
+    if (activeTab === "All") return properties;
 
-  // Mock Login
-  const isLoggedIn = false;
+    return properties.filter(
+      (item) => item.category === activeTab
+    );
 
-  const toggleFavorite = (id: number) => {
+  }, [activeTab]);
 
-    if (!isLoggedIn) {
-      setPendingAction("favorite");
-      setShowLogin(true);
-      return;
-    }
-
-    if (favorites.includes(id)) {
-      setFavorites(favorites.filter((item) => item !== id));
-    } else {
-      setFavorites([...favorites, id]);
-    }
-
+  // Directly navigate to Property Details page
+  const handlePropertyClick = (id: number) => {
+    navigate(`/property/${id}`);
   };
+    return (
+    <section className="explorer-section" id="explore">
 
-  const filteredProperties =
-    activeTab === "All"
-      ? properties
-      : properties.filter(
-          (item) => item.category === activeTab
-        );
+      <div className="explorer-container">
 
-  return (
+        {/* ================= HEADER ================= */}
 
-<section className="explorer" id="explore">
+        <motion.div
+          className="explorer-header"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
 
-<div className="section-header">
+          <span className="section-badge">
+            Featured Properties
+          </span>
 
-<span className="mini-title">
-<FiFilter />
-Explore Premium Properties
-</span>
+          <h2>
+            Find Your
+            <span> Perfect Stay</span>
+          </h2>
 
-<h2>
-Featured Properties
-</h2>
+          <p>
+            Discover verified PGs, Apartments,
+            Hostels and Studios carefully
+            curated for students, professionals
+            and travellers.
+          </p>
 
-<p>
-Discover premium verified stays curated
-for comfort, affordability and lifestyle.
-</p>
+        </motion.div>
 
-</div>
+        {/* ================= FILTERS ================= */}
 
-{/* FILTERS */}
+        <div className="filter-tabs">
 
-<div className="filter-tabs">
+          {tabs.map((tab) => (
 
-{categories.map((item)=>(
+            <button
+              key={tab}
+              className={
+                activeTab === tab
+                  ? "filter-btn active"
+                  : "filter-btn"
+              }
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
 
-<button
+          ))}
 
-key={item}
+        </div>
 
-onClick={()=>setActiveTab(item)}
+        {/* ================= PROPERTY GRID ================= */}
 
-className={
-activeTab===item
-?"active"
-:""
-}
-
->
-
-{item}
-
-</button>
-
-))}
-
-</div>
-
-{/* PROPERTY GRID STARTS IN PART 2 */}
-        {/* ===========================
-            PROPERTY GRID
-        =========================== */}
-
-        <div className="property-grid">
+        <div className="properties-grid">
 
           {filteredProperties.map((property) => (
 
             <motion.div
               key={property.id}
               className="property-card"
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -8 }}
+              onClick={() => handlePropertyClick(property.id)}
             >
 
-              {/* Image */}
+              {/* IMAGE */}
 
               <div className="property-image">
 
@@ -174,125 +175,57 @@ activeTab===item
                   alt={property.title}
                 />
 
-                <button
-                  className={`heart-btn ${
-                    favorites.includes(property.id)
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() =>
-                    toggleFavorite(property.id)
-                  }
-                >
-                  <FiHeart />
-                </button>
-
-                <span className="price-tag">
+                <span className="property-price">
                   {property.price}
                 </span>
 
               </div>
 
-              {/* Content */}
+              {/* CONTENT */}
 
               <div className="property-content">
 
-                <h3>{property.title}</h3>
+                <div className="property-top">
+
+                  <h3>{property.title}</h3>
+
+                  <span className="rating">
+
+                    <FiStar />
+
+                    {property.rating}
+
+                  </span>
+
+                </div>
 
                 <div className="location">
 
                   <FiMapPin />
 
-                  {property.location}
+                  <span>{property.location}</span>
 
                 </div>
 
-                <span className="sharing-badge">
+                <div className="category-tag">
 
-                  {property.sharing}
+                  {property.category}
 
-                </span>
+                </div>
 
-                <div className="property-actions">
+                <div className="property-footer">
 
-                  {property.available ? (
+                  <button
+                    className="details-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePropertyClick(property.id);
+                    }}
+                  >
+                    View Details
 
-                    <button
-                      className="book-btn"
-                      onClick={() => {
-
-                        if (!isLoggedIn) {
-
-                          setPendingAction("book");
-
-                          setShowLogin(true);
-
-                          return;
-
-                        }
-
-                        alert(
-                          `Booking ${property.title}`
-                        );
-
-                      }}
-                    >
-                      Book Now
-                    </button>
-
-                  ) : (
-
-                    <>
-
-                      <button
-                        className="notify-btn"
-                        onClick={() => {
-
-                          if (!isLoggedIn) {
-
-                            setPendingAction("notify");
-
-                            setShowLogin(true);
-
-                            return;
-
-                          }
-
-                          alert(
-                            "We'll notify you when available."
-                          );
-
-                        }}
-                      >
-                        Notify Me
-                      </button>
-
-                      <button
-                        className="enquiry-btn"
-                        onClick={() => {
-
-                          if (!isLoggedIn) {
-
-                            setPendingAction("enquiry");
-
-                            setShowLogin(true);
-
-                            return;
-
-                          }
-
-                          alert(
-                            "Opening enquiry form..."
-                          );
-
-                        }}
-                      >
-                        Enquiry
-                      </button>
-
-                    </>
-
-                  )}
+                    <FiArrowRight />
+                  </button>
 
                 </div>
 
@@ -304,63 +237,10 @@ activeTab===item
 
         </div>
 
-        {/* ===========================
-            LOGIN MODAL
-        =========================== */}
+      </div>
 
-        {showLogin && (
-
-          <div className="login-overlay">
-
-            <div className="login-modal">
-
-              <h2>Sign In Required</h2>
-
-              <p>
-
-                Please sign in to continue your
-                <strong> {pendingAction}</strong> action.
-
-              </p>
-
-              <div className="modal-buttons">
-
-                <button
-                  className="login-btn"
-                  onClick={() => {
-
-                    alert(
-                      "Login Successful (Demo)"
-                    );
-
-                    setShowLogin(false);
-
-                  }}
-                >
-                  Sign In
-                </button>
-
-                <button
-                  className="cancel-btn"
-                  onClick={() =>
-                    setShowLogin(false)
-                  }
-                >
-                  Cancel
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        )}
-
-      </section>
-
+    </section>
   );
-
 };
 
 export default Explorer;
