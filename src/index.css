@@ -1,4 +1,30 @@
 /* ==========================================
+   GLOBAL THEME VARIABLES
+========================================== */
+
+:root{
+  --bg:#f8fafc;
+  --text:#111827;
+}
+
+html.dark{
+  --bg:#050816;
+  --text:#ffffff;
+}
+
+html.light{
+  --bg:#f8fafc;
+  --text:#111827;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  transition:background .35s ease,color .35s ease;
+}
+
+/* ==========================================
    GLOBAL SECTION SPACING
 ========================================== */
 
